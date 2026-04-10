@@ -1,0 +1,28 @@
+.audio-player {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.audio-toggle-btn {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid var(--primary-dark);
+  color: var(--primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  backdrop-filter: blur(5px);
+}
+
+.audio-toggle-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: var(--glow-primary);
+  transform: scale(1.1);
+}

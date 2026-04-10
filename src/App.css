@@ -1,0 +1,72 @@
+/* App level styles */
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Entry Screen */
+.entry-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, var(--bg-color-lighter) 0%, var(--bg-color) 100%);
+  z-index: 100;
+}
+
+.entry-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  animation: fadeIn 2s ease-out;
+}
+
+.title {
+  font-size: 5rem;
+  text-shadow: var(--shadow-dark);
+  margin-bottom: -1rem;
+}
+
+.subtitle {
+  font-family: var(--font-ui);
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: var(--primary);
+  box-shadow: var(--glow-primary);
+}
+
+.entry-btn {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  padding: 15px 40px;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 10px rgba(217, 28, 28, 0.4); }
+  to { box-shadow: 0 0 30px rgba(217, 28, 28, 0.8), 0 0 50px rgba(217, 28, 28, 0.4); }
+}

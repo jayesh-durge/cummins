@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&family=Nosifer&display=swap');
+
+:root {
+  /* Colors */
+  --bg-color: #0a0a0a;
+  --bg-color-alt: #111111;
+  --bg-color-lighter: #1a1a1a;
+  
+  --primary: #d91c1c;       /* Blood red */
+  --primary-hover: #ff2a2a;
+  --primary-dark: #8b0000;
+  
+  --text-main: #f5f5f5;
+  --text-muted: #a0a0a0;
+  --text-dark: #333333;
+
+  /* Typography */
+  --font-hero: 'Cinzel', serif;         /* Epic, cinematic feel */
+  --font-ui: 'Rajdhani', sans-serif;    /* Futuristic, tactical HUD feel */
+  --font-body: 'Inter', sans-serif;     /* Clean, readable */
+  --font-bloody: 'Nosifer', display;    /* Dripping, bloody horror font */
+
+  /* Shadows & Glows */
+  --glow-primary: 0 0 15px rgba(217, 28, 28, 0.5);
+  --glow-strong: 0 0 30px rgba(217, 28, 28, 0.8);
+  --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.8);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-hero);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Lenis Smooth Scroll Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Base Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), var(--primary-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-normal);
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: var(--shadow-dark);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--glow-primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-ghost {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: var(--transition-normal);
+  background: transparent;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.btn-ghost:hover {
+  background: rgba(217, 28, 28, 0.1);
+  box-shadow: inset 0 0 10px rgba(217, 28, 28, 0.5);
+  text-shadow: 0 0 5px var(--primary);
+}
